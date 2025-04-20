@@ -1,0 +1,143 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{geometry}
+
+\geometry{a4paper, margin=1in}
+
+\title{Übung 1 - SPFT}
+\author{Tobi}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Aufgabe 1}
+Software muss spezifiziert werden, damit diese korrekt funktioniert. Viele Systeme bedarfen genaue Sicherheitssysteme
+welche für die Sicherheit vieler Menschen wichtig ist. Außerdem kann ``falsche'' Software zum Verlust von Geld und Geschwindigkeit in
+der Industrie führen.
+
+\section*{Aufgabe 2}
+informale Spezifikation: hat den Vorteil das diese von vielen Leuten verstanden wird, da es eine natürlich gesprochene Sprache ist, Nachteilig
+ist hier das die Sprache auch mehrdeutig sein kann.
+formale Spezifikation: hat den Vorteil das sie sehr genau ist und man viele Systeme sehr genau spezifizieren kann, dafür funktioniert diese Art 
+nicht für alle Systeme und sie kann auch nicht direkt von jedem verstanden werden.
+
+\section*{Aufgabe 3}
+Die Spezifikation beschreibt was die Software tun soll, während die Verifikation prüft ob die Software tatsächlich das tut was sie soll.
+Bsp. Login System, Die Spezifikation ist hier das ein Benutzer sich mit Email und Passwort anmelden können, das ein Passwort mindestens 8 
+Zeichen lang sein muss und das nach 3 Fehlversuchen der Account gesperrt wird. Die Verifikation testet genau diese Vorgaben ob sie tatsächlich
+auch so eintreten.
+
+\section*{Aufgabe 4}
+Die syntaktische Korrektheit beschreibt ob etwas richtig geschrieben ist, aber es wird nicht kontrolliert ob es auch korrekt ist.
+Die semantische Korrektheit überprüft dann ob das richtig geschrieben auch korrekt und sinnvoll ist.\\
+Bsp. C-Code, deutscher Satz
+
+\section*{Aufgabe 5}
+Fobos-Grunt (2011):\\
+Ursache: Softwarefehler im Steuerungssystem führte zu einem Reset der Bordrechner\\
+Folge: Die Raumsonde konnte ihre Mission nicht beginnen und stürzte ab, Verlust von ca. 120 Mio US Dollar\\
+Vermeidbar: Ja, eine präzise Spezifikation und Verifikation kritischer Softwarepfade hätte helfen können, Fehlfunktionen beim Systemstart zu vermeiden\\
+
+Galileo Debakel (2014):\\
+Ursache: Softwarefehler in der Steuerung der Trägerrakete Sojus-Fregat, der zu falscher Bahnführung der Galileo-Satelliten führte.\\
+Folge: Zwei teure Navigationssatelliten wurden in eine nutzlose Umlaufbahn gebracht.\\
+Vermeidbarkeit durch Spezifikation: Ja, eine fehlerfreie Spezifikation und bessere Systemintegrationstests hätten den Steuerungsfehler vermutlich verhindern können.\\
+
+Germanwings Flug 9525 (2015)\\
+Ursache: Der Co-Pilot brachte das Flugzeug absichtlich zum Absturz. Die Software ließ ein manuelles Absenken der Flughöhe ohne Rückfrage zu.\\
+Folge: Absturz mit 150 Toten.\\
+Vermeidbarkeit durch Spezifikation: Möglicherweise, eine sicherheitsspezifische Spezifikation hätte fordern können, dass bei drastischen Höhenänderungen zusätzliche Prüfmechanismen greifen (z.~B. Zweitautorisierung).
+
+\section*{Aufgabe 6}
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|l|l|l|}
+    \hline
+    & Aussagenlogischer Ausdruck & Tautologie oder Kontradiktion \\ \hline
+    a) & ja & weder noch \\ \hline
+    b) & ja & Tautologie \\ \hline
+    c) & ja & weder noch \\ \hline
+    d) & ja & weder noch \\ \hline
+    e) & ja & Kontradiktion \\ \hline
+    f) & nein & geht nicht \\ \hline
+    g) & ja & weder noch \\ \hline
+    h) & ja & Tautologie \\ \hline
+    \end{tabular}
+    \end{table}
+
+\section*{Aufgabe 7}
+    \subsection*{a)}
+    
+    \centering
+    \begin{tabular}{|l|l|l|l|}
+    \hline
+    A & B & C & $(A \implies B) \land (B \implies \neg A)$ \\ \hline
+    f & f & f & w \\ \hline
+    f & f & t & w \\ \hline
+    f & t & f & f \\ \hline
+    f & t & t & f \\ \hline
+    t & f & f & f \\ \hline
+    t & f & t & f \\ \hline
+    t & t & f & f \\ \hline
+    t & t & t & f \\ \hline
+    \end{tabular}
+    
+    \subsection*{b)}
+    
+    \centering
+    \begin{tabular}{|l|l|l|l|}
+    \hline
+    A & B & C & $A \implies B \implies C$ \\ \hline
+    f & f & f & w \\ \hline
+    f & f & t & w \\ \hline
+    f & t & f & w \\ \hline
+    f & t & t & w \\ \hline
+    t & f & f & w \\ \hline
+    t & f & t & w \\ \hline
+    t & t & f & f \\ \hline
+    t & t & t & w \\ \hline
+    \end{tabular}
+    
+    \subsection*{c)}
+    
+    \centering
+    \begin{tabular}{|l|l|l|l|}
+    \hline
+    A & B & C & $A \land (B \implies \neg A) \land (A \implies B)$ \\ \hline
+    f & f & f & f \\ \hline
+    f & f & t & f \\ \hline
+    f & t & f & f \\ \hline
+    f & t & t & f \\ \hline
+    t & f & f & f \\ \hline
+    t & f & t & f \\ \hline
+    t & t & f & f \\ \hline
+    t & t & t & f \\ \hline
+    \end{tabular}
+    
+    \subsection*{d)}
+    
+    \centering
+    \begin{tabular}{|l|l|l|l|}
+    \hline
+    A & B & C & $A \iff B \iff C$ \\ \hline
+    f & f & f & w \\ \hline
+    f & f & t & f \\ \hline
+    f & t & f & f \\ \hline
+    f & t & t & w \\ \hline
+    t & f & f & f \\ \hline
+    t & f & t & w \\ \hline
+    t & t & f & w \\ \hline
+    t & t & t & f \\ \hline
+    \end{tabular}
+    
+
+
+\end{document}
