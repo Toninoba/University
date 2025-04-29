@@ -1,0 +1,42 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm}
+
+\title{Übung 2.5}
+\author{Tobias Petsch}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+Wir definieren Atomare Aussagen \\
+\begin{description}
+    \item[$L$:] Der linke Weg führt nach Delphi
+    \item[$M$:] Der mittlere Weg führt nach Delphi
+    \item[$R$:] Der rechte Weg führt nach Delphi
+    \item[$V$:] Der rechte Weg führt ins Verderben
+    \item[$\neg M$:] Der mittlere Weg fuehrt nicht nach Delphi 
+\end{description}
+
+\textit{„Wisse, wenn der mittlere Weg in die Irre führt, so gelangst du auf dem linken und dem rechten Wege nach Delphi.“}
+
+Das bedeutet: $\neg M \rightarrow (L \land R)$
+
+\textit{„Der Weise erkennt, sollte vom linken und mittleren Wege höchstens einer nach Delphi führen, so führt der Rechte sicher in die Leere.“}
+
+Das bedeutet: $\neg (L \land M) \rightarrow \neg R$
+
+\textit{„Wenn der Suchende jedoch auf dem rechten oder linken Weg nach Delphi gelangt, dann führt der mittlere mit Sicherheit ins Verderben.“}
+
+Das bedeuet: $(R \lor L) \rightarrow V$
+
+% Hier beginnt der Inhalt der Aufgabe.
+
+\end{document}

@@ -1,0 +1,68 @@
+\documentclass[a4paper,12pt]{article}
+\author{Tobias Petsch}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{geometry}
+
+\geometry{a4paper, margin=1in}
+\setlength{\parindent}{0pt}
+
+\title{Aufgabe 2.1}
+\date{}
+\begin{document}
+\maketitle
+
+
+\section*{a)}
+\[
+(A \lor \neg B) \land B
+\]
+
+Mit $B$ als Einheitsklausel folgt das $B$ true sein muss, da wir aufgrund der KNF die Literale
+voneinander trennen. Einsetzen in $A \lor \neg B$ ergibt $A \lor false$, was wiederrum $A$ ergibt.
+Da $A$ wieder eine Einheitsklausel ist und so auch erfüllbar ist, kann die gesamte Formel erfüllt werden. \\
+
+Aufwand: Da beide Operationen Unit-Propagation waren entsprach der Aufwand O(1) für jede propagation und insgesamt
+O(n) da kein Backtracking betrieben werden musste.
+
+\section*{b)}
+\[
+A \lor \neg (B \land \neg C) \Leftrightarrow C \Rightarrow A
+\]
+
+Nehme an $A = true$ dann folgt daraus $true \lor ... \Leftrightarrow ...$ und
+auf der rechten Seite $C \Rightarrow true$, da dies ebenfalls zu $true$ gekürzt werden kann 
+bleibt $true \Leftrightarrow true$ übrig. Daraus folgt das die Formel erfüllbar ist.
+
+Aufwand: bleibt bei O(n) da kein Backtracking nötig war.
+
+\section*{c)}
+\[
+(A \lor B) \land (\neg A \lor B) \land (A \lor \neg B)
+\]
+
+Aus der KNF folgen drei einzelne Formeln 
+\begin{align}
+    K1 &= (A \lor B) \\
+    K2 &= (\neg A \lor B) \\
+    K3 &= (A \lor \neg B)
+\end{align}
+
+Wir wählen zufällig A aus und setzen es auf true. Daraus entstehen folgende Formeln
+
+\begin{align}
+    K1 &= (true \lor B) \rightarrow \text{erfüllt}\\
+    K2 &= (false \lor B) \rightarrow \text{es bleibt B übrig}\\
+    K3 &= (true \lor \neg B) \rightarrow \text{erfüllt}
+\end{align}
+
+Nun bleibt B als Einheitsklausel übrig und wir können Unit-Propagation ausführen.
+Daraus folgt das auch K2 erfüllbar wird und so alle Formeln erfüllbar sind.
+
+Aufwand: Kein Backtracking nötig, daraus folgt ein Aufwand von O(n)
+
+\end{document}

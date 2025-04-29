@@ -1,0 +1,54 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm}
+
+\title{Aufgabe 2.3}
+\author{Tobias Petsch}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{(a)}
+
+\[
+TRUE \models (A \land B) \Rightarrow ((A \lor \neg B) \land B)
+\]
+
+Wir sollen zeigen, dass $(A \land B) \Rightarrow ((A \lor \neg B) \land B)$ immer wahr ist.
+Dazu formen wir die Formel in ein Sequent um. \\
+$\vdash (A \land B) \Rightarrow ((A \lor \neg B) \land B)$
+
+Da Implikationen im Sequenzenkalkuel als Regeln behandelt werden entsteht \\
+$A \land B \vdash (A \lor \neg B)$ \\
+
+$A \land B$ kann als Annahme $A,B$ zusammengefasst werden, wir erhalten nun die Sequenten 
+$A,B \vdash A \lor \neg B \text{ und } A,B \vdash B$ \\
+Da $A \vdash A$ trivial ist, ist der erste Teil abgehakt, da True oder etwas anderes immer true ergibt.
+Die Rechte Seite ist ebenfalls trivial da als Praemisse B auf der linken Seite steht. Da beide Teilsequenten beweisbar
+sind ist die gesamte Formel gueltig und erfuellbar ist. 
+
+
+\section*{(b)}
+
+\[
+A \land (B \Rightarrow \neg A) \land (A \Rightarrow B) \models FALSE
+\]
+
+da hier durch Umformung ein Sequent auf rechter Seite folgt und die rechte Seite leer bleibt,
+heisst das es soll ein Widerspruch folgen. Alle Konjuntionen werden nun zu Annahmen. Aus den Implikationen
+werden Disjunktionen \\
+$B \Rightarrow \neg A \rightarrow \neg B \lor \neg A $ \\
+$A \Rightarrow B \rightarrow \neg A \lor \ B$ \\
+Aus diesen Annahmen entsteht eine widerspruechliche Menge, da aus $A \Rightarrow B$ und $B \Rightarrow \neg A$ 
+es nun heissen wuerde, dass $A \Rightarrow \neg A$ folge. Dies fuehrt aber zu einem Widerspruch, weswegen die Formel Unerfuellbar und nicht gueltig wird. 
+
+
+\end{document}
