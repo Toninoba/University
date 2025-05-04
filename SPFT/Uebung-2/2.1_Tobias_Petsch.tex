@@ -29,6 +29,14 @@ Da $A$ wieder eine Einheitsklausel ist und so auch erfüllbar ist, kann die gesa
 Aufwand: Da beide Operationen Unit-Propagation waren entsprach der Aufwand O(1) für jede propagation und insgesamt
 O(n) da kein Backtracking betrieben werden musste.
 
+
+\subsection*{Lösung}
+DP - Algorithmus \\
+Belege wie eine Art Baumstruktur. Belege A mit wahr $h(A)=T$ und $h(A)=F$ und gehe wie einen Binärbaum runter und schaue was am Ende übrig bleibt.
+Dann belege $B$ mit True und False und schaue wie die Blätterknoten aussehen. Daraus folgt eine Variablenbelegung $\{1,1\}$ heißt $A=T$ und $B=T$.
+Erfüllbar ist eine Formel dann, wenn mindestens eine Belegung sie wahr machen würde. Die Lösungsmenge darf also nicht Leer sein.
+
+
 \section*{b)}
 \[
 A \lor \neg (B \land \neg C) \Leftrightarrow C \Rightarrow A
