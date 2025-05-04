@@ -1,0 +1,118 @@
+\documentclass[a4paper,12pt]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{hyperref}
+
+% Page layout
+\geometry{a4paper, margin=1in}
+
+% Title
+\title{Aufgabenblatt 3}
+\author{Tobias Petsch}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Aufgabe 3.1}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+    & 0 & 1 & 2 & 3 \\ \hline
+0x3c  &          &          &          &          \\ \hline
+0x38  &          &          &          &          \\ \hline
+0x34  &          &          &          &          \\ \hline
+0x30  &          &          &          &          \\ \hline
+0x2c  &          &          &          &          \\ \hline
+0x28  &          &          &          &          \\ \hline
+0x24  &          &          &          &          \\ \hline
+0x20  &     4     &    7      &    8      &          \\ \hline
+0x1c  &          &          &          &          \\ \hline
+0x18  &          &          &          &          \\ \hline
+0x14  &     3     &     2     &    5      &          \\ \hline
+0x10  &          &     1     &          &          \\ \hline
+0x0c  &          &          &          &          \\ \hline
+0x08  &          &          &          &          \\ \hline
+0x04  &          &          &          &          \\ \hline
+0x00  &          &          &          &          \\ \hline
+\end{tabular}
+
+\end{table}
+
+\section*{3.2}
+\subsection*{a)}
+
+Es wurde size\_t genutzt, da size\_t einen unsigned long long beschreibt und somit nicht negativ initialisiert werden kann. Außerdem
+können so 64 bit vollständig addressiert werden. 
+
+
+\section*{3.4}
+\subsection*{a)}
+
+Ich erwarte das eine Ausgabe fuer p4 mit 8 und fuer p8 mit 16 entsteht, da f() zahlen doppeln soll.
+
+\subsection*{b)}
+
+Ich könnte mir vorstellen das die initialisiert Variable b in f() gelöscht wird, die ihr Scope zuende geht, sie auf dem Stackspeicher liegt und somit
+gelöscht werden kann. Dadurch entsteht ein dangling Pointer welcher nun irgendwo im Speicher hinzeigt.
+
+\section*{3.6}
+
+\subsection*{a)}
+\texttt{cat legalcode.txt | tr -d '()"?.!:;,+\&.' | \\
+tr '`-' ' ' | tr 'A-Z' 'a-z' > legalcode\_edited.txt} \\
+Ausgabe durch cat legalcode\_edited.txt
+
+\subsection*{b)}
+wc legalcode\_edited.txt \\
+319 2981 18996 legalcode\_edited.txt \\
+319 Zeilen \\
+2981 Woerter \\
+18996 Zeichen \\
+
+grep -vi 'the' legalcode\_edited.txt | wc -l \\
+127 Zeilen
+
+\subsection*{c)}
+Alle Woerter in einzelne Zeilen packen
+
+\texttt{tr ' ' '\textbackslash{}n' < legalcode\_edited.txt | grep -v '\textasciicircum{}\$' > legalcode\_edited\_seperated.txt}
+
+\texttt{sort legalcode\_edited\_seperated.txt | uniq | wc -l} 
+
+fuehrt zu einem Ergebnis von 666 unterschiedlichen Woertern
+
+\texttt{sort legalcode\_edited\_seperated.txt | uniq -c | sort -nr}
+244 the \\
+119 or \\
+116 of\\
+102 to \\
+83 work \\
+68 a \\
+67 license \\
+61 in \\
+58 and \\
+55 this \\
+
+\subsection*{d)}
+\texttt{\detokenize{awk '{ sum += length($0); count++ } END { if (count > 0) print sum / count }' ausgabe_ohne_leerzeilen.txt}} \\
+fuehrt zu 5.03958
+
+\subsection*{e)}
+\texttt{cat legalcode\_edited.txt | tr -d '[:space:][:punct:]' | \\
+grep -o . | sort | uniq -c | sort -nr} \\
+1738 e\\
+1431 t\\
+1318 o\\
+
+
+
+\end{document}
