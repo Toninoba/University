@@ -1,0 +1,51 @@
+\documentclass[a4paper,12pt]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{float}
+
+% Page layout
+\geometry{a4paper, left=25mm, right=25mm, top=25mm, bottom=25mm}
+
+% Title
+\title{Aufgabenblatt 4}
+\author{Tobias Petsch}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Aufgabe 1}
+fork() erzeugt ein Kindsprozess, welcher einer PID bekommt und von dieser von seinem Elternprozess unterscheidet.
+Er erstellt also einen neuen Thread.
+
+\section*{Aufgabe 2}
+
+\subsection*{a)}
+
+Nur der Textbereich und Data liegen tatsächlich auf dem Festplattenspeicher, der Rest wird nach Start im Arbeitsspeicher abgelegt.
+
+\subsection*{b)}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|}
+    \hline
+    text & 298 \\
+    data   & 4   \\
+    bss   & 8   \\
+    dec & 310\\
+    hex & 136 \\
+    \hline
+    \end{tabular}
+\end{table}
+
+
+\end{document}

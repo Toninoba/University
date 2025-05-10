@@ -118,7 +118,7 @@ static struct elem *init_list(size_t len)
  */
 static void clean_list(struct elem *head, size_t len)
 {
-    for (int i = 1; i < len; ++i) {
+    sfor (int i = 1; i < len; ++i) {
         size_t toDelete = len - i;
 
         struct elem* temp = head;
@@ -128,6 +128,7 @@ static void clean_list(struct elem *head, size_t len)
         }
         xfree(temp);
     }
+    xfree(head);
 }
 
 /**
