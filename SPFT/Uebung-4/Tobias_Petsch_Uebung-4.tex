@@ -1,0 +1,103 @@
+\documentclass[a4paper,12pt]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{a4paper, left=25mm, right=25mm, top=25mm, bottom=25mm}
+
+% Title and Author
+\title{Übung 4}
+\author{Tobias Petsch}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Aufgabe 1}
+\subsection*{a)}
+
+\[
+\forall x (F_r(x) \lor F_s(x))
+\]
+
+\[
+\forall x \forall y (F_r(x) \land F_r(y) \land K(x,y)) \lor (F_s(x) \land F_s(y) \land K(x,y)) \rightarrow \bot 
+\]
+
+\subsection*{b)}
+\[
+A \land \forall x \forall y \left( (F_r(x) \land F_s(y)) \rightarrow K(x, y) \right)
+\]
+
+$A$ = Ergbenis aus Teilaufgabe a).
+
+
+% Inhalt der Aufgabe 1
+
+\section*{Aufgabe 2}
+% Inhalt der Aufgabe 2
+
+
+
+$z$ ist ggT von $x$ und $y$, wenn:
+
+1. $z$ teilt $x$ und $y$:  
+\[
+\exists a\, (x = z \cdot a) \land \exists b\, (y = z \cdot b)
+\]
+
+2. Jeder gemeinsame Teiler $d$ von $x$ und $y$ teilt auch $z$:  
+\[
+\forall d \left( (\exists a\, (x = d \cdot a) \land \exists b\, (y = d \cdot b)) \rightarrow \exists c\, (z = d \cdot c) \right)
+\]
+
+Formel:
+\[
+A(x, y, z) := 
+\left( \exists a\, (x = z \cdot a) \land \exists b\, (y = z \cdot b) \right) 
+\land 
+\left( \forall d \left( (\exists a\, (x = d \cdot a) \land \exists b\, (y = d \cdot b)) \rightarrow \exists c\, (z = d \cdot c) \right) \right)
+\]
+
+
+Die Formel stellt sicher, dass $z$ sowohl $x$ als auch $y$ teilt, also ein gemeinsamer Teiler ist. 
+Zusätzlich wird gefordert, dass jeder andere gemeinsame Teiler $d$ auch $z$ teilt. 
+Damit ist $z$ der größte gemeinsame Teiler.
+
+\section*{Aufgabe 3}
+
+\subsection*{a)}
+\[
+\forall x \forall y \left( \text{Kind}(y, x) \leftrightarrow \text{Elternteil}(x, y) \right)
+\]
+
+\subsection*{b)}
+\[
+\forall x \forall y \left( \text{Verheiratet}(x, y) \rightarrow \neg \text{Geschwister}(x, y) \right)
+\]
+
+\subsection*{c)}
+\[
+\forall x \forall z \left( \text{Großelternteil}(x, z) \leftrightarrow \exists y \left( \text{Elternteil}(x, y) \land \text{Elternteil}(y, z) \right) \right)
+\]
+
+\section*{Aufgabe 4}
+
+\subsection*{a)}
+\[
+\forall x \forall y \left( \text{Geschwister}(x, y) \rightarrow \text{Geschwister}(y, x) \right)
+\]
+
+\subsection*{b)}
+\[
+\forall x \left( \neg \text{Geschwister}(x, x) \right)
+\]
+
+
+
+\end{document}

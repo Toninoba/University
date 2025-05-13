@@ -1,0 +1,27 @@
+lemmas
+
+(: variables ; :)
+
+Hilbert-1:  ⊦ φ → (ψ → φ) ;
+
+Hilbert-2:  ⊦ (φ → ψ) → (¬ ψ → ¬ φ) ;
+
+Hilbert-3:  ⊦ ((φ → ψ) → (φ → χ)) → (φ → (ψ → χ)) ; 
+
+
+01-contradiction:  φ ∧ ¬ φ ⊦ ;
+
+02-de-morgan-or:  ⊦ ¬ (φ ∨ ψ) ↔ ¬ φ ∧ ¬ ψ;
+
+03-composition:  φ → ψ, φ → χ ⊦ φ → ψ ∧ χ; 
+
+04-distributivity-and:  ⊦ φ ∧ (ψ ∨ χ) ↔ φ ∧ ψ ∨ φ ∧ χ;
+
+
+delphi-try:  (¬ middle → left ∧ right) 
+        ;;∧  (: Your task :); 
+	    ;;∧  (: Your task :);
+		⊦ ;
+
+
+;;; END
