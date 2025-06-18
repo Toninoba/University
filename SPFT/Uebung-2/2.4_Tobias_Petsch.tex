@@ -1,0 +1,57 @@
+\documentclass[a4paper,12pt]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{hyperref}
+
+% Page layout
+\geometry{a4paper, margin=2.5cm}
+
+% Title
+\title{Übung 2.4}
+\author{Tobias Petsch}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\[
+\neg A \models (B \Rightarrow \neg A) \land (A \Rightarrow B)
+\]
+
+Wir sollen beweisen dass $\neg A$ eine Loesung der Formel ist, nun koennen wir diese Annehme umformen zu einem Sequent
+
+\[
+\neg A \vdash (B \Rightarrow \neg A) \land (A \Rightarrow B)
+\]
+
+Das logische und kann ersetzt werden, sodass wir aus $\neg A$ nun $(B \Rightarrow \neg A)$ und $(A \Rightarrow B)$
+zeigen muessen. Das erste Teilsequent kann umgeformt werden \\
+\[
+\neg A \vdash B \Rightarrow \neg A \rightarrow \neg A,B \vdash \neg A
+\] 
+Da aus $\neg A \rightarrow \neg A$ folgt, ist der erste Teil schonmal erfuellbar, das zweite Teilsequent wird gleichermasen umgeformt.
+
+\[
+\neg A \vdash A \Rightarrow B \rightarrow \neg A,A \vdash B
+\]
+
+Hier stossen wir auf einen Widerspruch der Annahmen, wodurch wir alles annehmen koennen, weswegen auch der zweite Teil erfuellbar ist.
+Dadurch ist die gesamte Formel erfuellbar
+
+\subsection*{Lösung}
+Fast richtig, aber halt falsche Form, und es ist dann nicht unbedingt erfüllbar aber zumindestens herleitbar.
+Richtung von $\models$ ist wichtig. 
+
+Letzter Teil $A, \neg A$, da kann man NICHT alles annehmen, aber Regel macht es zu einem Axiom.
+
+
+% Hier kommt der Inhalt der Aufgabe hin.
+
+\end{document}

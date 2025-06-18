@@ -1,0 +1,211 @@
+\documentclass[a4paper,12pt]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{geometry}
+% \usepackage{unicode-math} % Removed because it is incompatible with pdfTeX
+\geometry{a4paper, left=25mm, right=25mm, top=25mm, bottom=25mm}
+
+% Title and Author
+\title{Übung 3.2}
+\author{Tobias Petsch}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+
+
+\section*{Hilber-1}
+
+$\vdash \varphi \to \psi \to \varphi$
+
+$\varphi \vdash \psi \to \varphi$
+
+$\psi, \varphi \vdash \varphi$
+
+\section*{Hilbert-2}
+
+$\vdash (\varphi \to \psi) \to \neg \psi \to \neg \varphi$
+
+$\varphi \to \psi \vdash \neg \psi \to \neg \varphi$
+
+$\neg \psi, \varphi \to \psi \vdash \neg \varphi$
+
+$\neg \psi \vdash \varphi, \neg \varphi$
+
+$\varphi, \neg \psi \vdash \varphi$ \\
+
+
+$\neg \psi, \psi \vdash \neg \varphi$
+
+$\varphi, \neg \psi, \psi \vdash$
+
+$\varphi, \psi \vdash \psi$
+
+\section*{Hilbert-3}
+
+$\vdash ((\varphi \to \psi) \to \varphi \to \chi) \to \varphi \to \psi \to \chi$
+
+$(\varphi \to \psi) \to \varphi \to \chi \vdash \varphi \to \psi \to \chi$
+
+$\varphi, (\varphi \to \psi) \to \varphi \to \chi \vdash \psi \to \chi$
+
+$\psi, \varphi, (\varphi \to \psi) \to \varphi \to \chi \vdash \chi$
+
+$\psi, \varphi \vdash \varphi \to \psi, \chi$
+
+$\varphi, \psi, \varphi \vdash \psi, \chi$ \\
+
+
+$\psi, \varphi, \varphi \to \chi \vdash \chi$
+
+$\psi, \varphi \vdash \varphi, \chi$
+
+
+$\psi, \varphi, \chi \vdash \chi$
+
+\section*{01-contradiction}
+
+$\varphi \land \neg \varphi \vdash$
+
+$\varphi, \neg \varphi \vdash$
+
+$\varphi \vdash \varphi$
+
+\section*{02-de-morgan-or}
+
+$\vdash \neg(\varphi \lor \psi) \leftrightarrow \neg \varphi \land \neg \psi$
+
+$\neg(\varphi \lor \psi) \vdash \neg \varphi \land \neg \psi$
+
+$\neg(\varphi \lor \psi) \vdash \neg \varphi$
+
+$\varphi, \neg(\varphi \lor \psi) \vdash$
+
+$\varphi \vdash \varphi \lor \psi$
+
+$\varphi \vdash \varphi, \psi$  \\
+
+
+$\neg(\varphi \lor \psi) \vdash \neg \psi$
+
+$\psi, \neg(\varphi \lor \psi) \vdash$
+
+$\psi \vdash \varphi \lor \psi$
+
+$\psi \vdash \varphi, \psi$ \\
+
+
+$\neg \varphi \land \neg \psi \vdash \neg(\varphi \lor \psi)$
+
+$\varphi \lor \psi, \neg \varphi \land \neg \psi \vdash$
+
+$\varphi, \neg \varphi \land \neg \psi \vdash$
+
+$\varphi, \neg \varphi, \neg \psi \vdash$
+
+$\varphi, \neg \psi \vdash \varphi$ \\
+
+
+$\psi, \neg \varphi \land \neg \psi \vdash$
+
+$\psi, \neg \varphi, \neg \psi \vdash$
+
+$\psi, \neg \varphi \vdash \psi$
+
+\section*{03-composition}
+
+$\varphi \to \psi, \varphi \to \chi \vdash \varphi \to \psi \land \chi$
+
+$\varphi, \varphi \to \psi, \varphi \to \chi \vdash \psi \land \chi$
+
+$\varphi, \varphi \to \psi, \varphi \to \chi \vdash \psi$
+
+$\varphi, \varphi \to \chi \vdash \varphi, \psi$ \\
+
+
+$\varphi, \psi, \varphi \to \chi \vdash \psi$ \\
+
+
+$\varphi, \varphi \to \psi, \varphi \to \chi \vdash \chi$
+
+$\varphi, \varphi \to \chi \vdash \varphi, \chi$ \\
+
+
+$\varphi, \psi, \varphi \to \chi \vdash \chi$
+
+$\varphi, \psi \vdash \varphi, \chi$
+
+$\varphi, \psi, \chi \vdash \chi$
+
+\section*{04-distributivity-and}
+
+$\vdash \varphi \land (\psi \lor \chi) \leftrightarrow \varphi \land \psi \lor \varphi \land \chi$
+
+$\varphi \land (\psi \lor \chi) \vdash \varphi \land \psi \lor \varphi \land \chi$
+
+$\varphi \land (\psi \lor \chi) \vdash \varphi \land \psi, \varphi \land \chi$
+
+$\varphi \land (\psi \lor \chi) \vdash \varphi, \varphi \land \chi$
+
+$\varphi \land (\psi \lor \chi) \vdash \varphi, \varphi$
+
+$\varphi, \psi \lor \chi \vdash \varphi, \varphi$ \\
+
+
+$\varphi \land (\psi \lor \chi) \vdash \varphi, \chi$ \\
+
+$\varphi, \psi \lor \chi \vdash \varphi, \chi$
+
+
+$\varphi \land (\psi \lor \chi) \vdash \psi, \varphi \land \chi$ \\
+
+$\varphi \land (\psi \lor \chi) \vdash \psi, \varphi$
+
+$\varphi, \psi \lor \chi \vdash \psi, \varphi$ \\
+
+
+$\varphi \land (\psi \lor \chi) \vdash \psi, \chi$ \\
+
+$\varphi, \psi \lor \chi \vdash \psi, \chi$
+
+$\varphi, \psi \vdash \psi, \chi$ \\
+
+
+$\varphi, \chi \vdash \psi, \chi$ \\ \\
+
+
+
+$\varphi \land \psi \lor \varphi \land \chi \vdash \varphi \land (\psi \lor \chi)$
+
+$\varphi \land \psi \lor \varphi \land \chi \vdash \varphi$
+
+$\varphi \land \psi \vdash \varphi$
+
+$\varphi, \psi \vdash \varphi$ \\
+
+
+$\varphi \land \chi \vdash \varphi$
+
+$\varphi, \chi \vdash \varphi$ \\
+
+
+$\varphi \land \psi \lor \varphi \land \chi \vdash \psi \lor \chi$
+
+$\varphi \land \psi \lor \varphi \land \chi \vdash \psi, \chi$
+
+$\varphi \land \psi \vdash \psi, \chi$
+
+$\varphi, \psi \vdash \psi, \chi$ \\
+
+
+$\varphi \land \chi \vdash \psi, \chi$
+
+$\varphi, \chi \vdash \psi, \chi$
+\end{document}

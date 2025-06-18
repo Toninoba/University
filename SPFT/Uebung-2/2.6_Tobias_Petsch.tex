@@ -1,0 +1,44 @@
+\documentclass[a4paper,12pt]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{a4paper, left=25mm, right=25mm, top=25mm, bottom=25mm}
+
+% Title and Author
+\title{Übung 2.6}
+\author{Tobias Petsch}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+Wir erstellen Variablen
+\begin{description}
+    \item[$S$: ] Steuererhoehungen
+    \item[$P$: ] Preisinstabilitaet
+    \item[$H$: ] Staatshaushalt kuerzen
+\end{description}
+
+
+Wir erstellen Aussagen
+
+aus (i) folgt $S \Rightarrow P$ \\
+aus (ii) folgt $\neg S \Rightarrow H$ \\ 
+aus (iii) folgt $\neg H \land P \Rightarrow S$ \\
+
+Wir beweisen durch Widerspruch ob (c) eine logische Folgerung ist. \\
+Wir nehmen an $\neg S$ \\
+Daraus folgt die Kontraposition $\neg S \Rightarrow \neg P$ \\
+In Aussage (iii) entsteht so $(\neg H \land \neg P)$ was $false$ ist wodurch die Implikation wahr wird. \\
+Aussage (ii) bleibt unklar und somit kann nicht entschieden werden ob Steuern erhoeht werden muessen, da beide Ergebnisse korrekt sind. \\
+Daraus folgt das Ohnemoosnixlos Gedanke falsch ist. 
+
+% Hier kommt der Inhalt der Aufgabe hin.
+
+\end{document}

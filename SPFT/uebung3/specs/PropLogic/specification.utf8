@@ -1,0 +1,26 @@
+specification
+
+;; sorts ;
+
+;; constants ;
+constants
+  φ , ψ , χ : Bool ;
+
+;; functions ;
+
+;; predicates ;
+
+;; procedures ;
+
+;; variables ;
+
+;; partial functions ;
+
+;; partial predicates ;
+
+
+;; induction ;
+
+;; axioms
+
+end specification
