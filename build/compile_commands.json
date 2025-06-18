@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/tobi/Documents/University/University/build",
+  "command": "/usr/bin/g++   -g -Wall -Wextra -pedantic -o CMakeFiles/a07.dir/main.cpp.o -c \"/home/tobi/Documents/University/University/CPP/Uebung-6#/main.cpp\"",
+  "file": "/home/tobi/Documents/University/University/CPP/Uebung-6#/main.cpp",
+  "output": "CMakeFiles/a07.dir/main.cpp.o"
+}
+]

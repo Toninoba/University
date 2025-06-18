@@ -1,0 +1,3 @@
+/home/tobi/Documents/University/University/build/CMakeFiles/a07.dir
+/home/tobi/Documents/University/University/build/CMakeFiles/edit_cache.dir
+/home/tobi/Documents/University/University/build/CMakeFiles/rebuild_cache.dir
