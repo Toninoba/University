@@ -1,0 +1,121 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
+
+\title{Übung 5}
+\author{Tobias Petsch}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Aufgabe 3}
+
+Ein Programm ist korrekt, wenn es für jede erlaubte Eingabe die laut Spezifikation richtige Ausgabe liefert = Semantik. 
+Man unterscheidet dabei zwischen partieller und totaler Korrektheit: 
+Partielle Korrektheit bedeutet, dass das Programm, wenn es terminiert, die korrekte Ausgabe liefert. 
+Totale Korrektheit verlangt zusätzlich, dass das Programm bei jeder gültigen Eingabe auch wirklich terminiert. Nur dann ist das Programm vollständig korrekt.
+
+
+
+\section*{Aufgabe 6}
+
+\subsection*{(a)}
+
+Gegeben:
+\[
+\{x \geq 5\}~x := x \cdot 2~\{x \geq 8\}
+\]
+
+Nach der \textbf{Zuweisungsregel} gilt:
+\[
+\{x \cdot 2 \geq 8\}~x := x \cdot 2~\{x \geq 8\}
+\Rightarrow x \geq 4
+\]
+
+Da:
+\[
+x \geq 5 \Rightarrow x \geq 4
+\]
+
+gilt die \textbf{Konsequenzregel}, somit:
+\[
+\{x \geq 5\}~x := x \cdot 2~\{x \geq 8\}
+\quad 
+\]
+
+\subsection*{(b)}
+
+\[
+\left\{
+  2 \leq n \leq 3 \land n \in \mathbb{N}
+\right\}
+~\texttt{if } n = 2 \texttt{ then } m := 4 \texttt{ else } m := 9~
+\left\{
+  m = n^2
+\right\}
+\]
+
+\textbf{Fall 1:} $n = 2$ \\
+Dann $m := 4$, und $n^2 = 4$ $\Rightarrow m = n^2$ 
+
+\textbf{Fall 2:} $n = 3$ \\
+Dann $m := 9$, und $n^2 = 9$ $\Rightarrow m = n^2$ 
+
+\textbf{Mit der If-Regel:}
+\[
+\{2 \leq n \leq 3 \land n \in \mathbb{N}\}~
+\texttt{if } n = 2 \texttt{ then } m := 4 \texttt{ else } m := 9~
+\{m = n^2\}
+\quad 
+\]
+
+\subsection*{(c)}
+
+\[
+\{x = x_0 \land y = y_0\}~
+t := y;\; y := x;\; x := t~
+\{x = y_0 \land y = x_0\}
+\]
+
+\textbf{Rückwärtsanalyse:}
+
+\begin{itemize}
+  \item $x := t$ benötigt $t = y_0$
+  \item $y := x$ benötigt $x = x_0$
+  \item $t := y$ benötigt $y = y_0$
+\end{itemize}
+
+Eingangsbedingung ist also:
+\[
+x = x_0 \land y = y_0
+\Rightarrow \text{Tripel korrekt} \quad
+\]
+
+\subsection*{(d)}
+
+\[
+\{x > n \land x < n\}~x := x + 1~\{x < n\}
+\]
+
+Da:
+\[
+x > n \land x < n \equiv \text{false}
+\Rightarrow \text{Vorbedingung ist unerfüllbar}
+\]
+
+Nach der \textbf{Konsequenzregel} gilt jedes Tripel mit \texttt{false} als Vorbedingung:
+\[
+\{\text{false}\}~x := x + 1~\{x < n\}
+\quad 
+\]
+
+\end{document}

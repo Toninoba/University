@@ -1,0 +1,195 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{listings}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+
+\geometry{a4paper, margin=2.5cm}
+
+\title{Aufgabenblatt 7\\Technische Informatik II}
+\author{Tobias Petsch}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Aufgabe 7.1}
+
+\subsection*{a)}
+
+Die Parkplatz Simulation bricht ab, da durch eine Race Condition der \lstinline{sem->value} negativ wird und so ein Deadlock entsteht.
+Wenn mehrere Threads feststellen, dass \lstinline{sem->value >= 0} ist dann werden sie den Wert verringern was zu einem negativen Wert führt.
+
+\section*{Aufgabe 7.2}
+
+\subsection*{a)}
+
+Da jeder Philosoph erst sein linkes Stäbchen nimmt, kommt es zu Situationen bei denen das zweite Stäbchen vom Nachbarn genommen wird und das solange bis 
+jeder Philosoph genau ein Stäbchen in der Hand hat, da er es nicht ablegen darf bis er gegessen hat, verhungert er.
+
+\subsection*{b)}
+
+\begin{center}
+\begin{tikzpicture}[>=stealth, node distance=2cm, every node/.style={font=\small}]
+  % Philosophen
+  \node[circle, draw] (P1) at (90:3cm) {P1};
+  \node[circle, draw] (P2) at (18:3cm) {P2};
+  \node[circle, draw] (P3) at (-54:3cm) {P3};
+  \node[circle, draw] (P4) at (-126:3cm) {P4};
+  \node[circle, draw] (P5) at (162:3cm) {P5};
+
+  % Stäbchen
+  \node[rectangle, draw] (S1) at (90:1.5cm) {S1};
+  \node[rectangle, draw] (S2) at (18:1.5cm) {S2};
+  \node[rectangle, draw] (S3) at (-54:1.5cm) {S3};
+  \node[rectangle, draw] (S4) at (-126:1.5cm) {S4};
+  \node[rectangle, draw] (S5) at (162:1.5cm) {S5};
+
+  % Besitz: durchgezogene Pfeile (Stäbchen -> Philosoph)
+  \draw[->] (S1) -- (P1);
+  \draw[->] (S2) -- (P2);
+  \draw[->] (S3) -- (P3);
+  \draw[->] (S4) -- (P4);
+  \draw[->] (S5) -- (P5);
+
+  % Anfragen: gestrichelte Pfeile (Philosoph -> Stäbchen)
+  \draw[->, dashed] (P1) -- (S2);
+  \draw[->, dashed] (P2) -- (S3);
+  \draw[->, dashed] (P3) -- (S4);
+  \draw[->, dashed] (P4) -- (S5);
+  \draw[->, dashed] (P5) -- (S1);
+
+\end{tikzpicture}
+\end{center}
+
+\subsection*{c)}
+
+\begin{verbatim}
+    while true do
+        wait until keiner der Nachbarn einen Hut trägt
+        setze lustigen Hut auf
+
+        warte, bis beide Stäbchen verfügbar sind (keine Konflikte mit Nachbarn)
+    
+        nimm das linke Stäbchen
+        nimm das rechte Stäbchen
+    
+        esse Reis, bis du satt bist
+
+        lege beide Stäbchen zurück auf den Tisch
+        setze den Hut ab
+        denke nach, bis du wieder hungrig bist
+
+\end{verbatim}
+
+\subsection*{d)}
+
+Wenn zwei Philosophen abwechselnd immer essen, ohne dabei den mittleren Philosophen zu berücksichtigen, dann wird dieser verhungern da er nie zum Zug kommt.
+
+\subsection*{e)}
+
+\begin{center}
+\begin{tikzpicture}[>=stealth, node distance=2cm, every node/.style={font=\small}]
+  % Philosophen
+  \node[circle, draw] (P1) at (90:3cm) {P1};
+  \node[circle, draw] (P2) at (18:3cm) {P2};
+  \node[circle, draw] (P3) at (-54:3cm) {P3}; % Der Rechtshänder
+  \node[circle, draw] (P4) at (-126:3cm) {P4};
+  \node[circle, draw] (P5) at (162:3cm) {P5};
+
+  % Stäbchen
+  \node[rectangle, draw] (S1) at (90:1.5cm) {S1};
+  \node[rectangle, draw] (S2) at (18:1.5cm) {S2};
+  \node[rectangle, draw] (S3) at (-54:1.5cm) {S3};
+  \node[rectangle, draw] (S4) at (-126:1.5cm) {S4};
+  \node[rectangle, draw] (S5) at (162:1.5cm) {S5};
+
+  % Besitz: durchgezogene Pfeile (Stäbchen -> Philosoph)
+  \draw[->] (S1) -- (P1);
+  \draw[->] (S2) -- (P2);
+  \draw[->] (S4) -- (P4);
+  \draw[->] (S5) -- (P5);
+
+  % P3 nimmt zuerst rechtes Stäbchen (S4)
+  \draw[->] (S4) -- (P3);
+
+  % Anfragen: gestrichelte Pfeile (Philosoph -> Stäbchen)
+  \draw[->, dashed] (P1) -- (S2);
+  \draw[->, dashed] (P2) -- (S3);
+
+  % P3 fordert linkes (S3) — da er rechts zuerst genommen hat
+  \draw[->, dashed] (P3) -- (S3);
+
+  \draw[->, dashed] (P4) -- (S5);
+  \draw[->, dashed] (P5) -- (S1);
+
+\end{tikzpicture}
+\end{center}
+
+Es kann kein Deadlock mehr entstehen, da kein zyklischer Deadlock entstehen kann.
+
+
+\section*{Aufgabe 7.3}
+
+Die \texttt{<stdatomic>} Bibliothek erlaubt es atomare Operationen auf Variablen auszuführen, die frei von Race Conditions sind.
+Sie erlaubt das sichere Schreiben und Lesen von Variablen mithilfe von \texttt{atomic\_int} oder ähnlichen. Sie ist 
+hilfreich für multithreaded Programme oder auch Zähler.
+
+\section*{Aufgabe 7.4}
+
+\subsection*{a)}
+
+\begin{itemize}
+    \item Mutual exclusion: Ressourcen können immer nur von einem Prozess gleichzeitig genutzt werden.
+    \item Hold and Wait: Ein Prozess hält bereits mindestens eine Ressource und wartet zusätzlich auf weitere, die von anderen Prozessen belegt sind.
+    \item No Preemption: Ressourcen können einem Prozess nicht zwangsweise entzogen werden. Sie müssen freiwillig freigegeben werden.
+    \item Circular Wait: Es existiert eine zyklische Wartekette, in der jeder Prozess auf eine Ressource wartet, die von einem anderen Prozess in der Kette gehalten werden.
+\end{itemize}
+
+
+
+\subsection*{b)}
+
+\begin{itemize}
+  \item \textbf{Mutual Exclusion vermeiden:}
+  \begin{itemize}
+    \item Betriebsmittel werden, wenn möglich, so gestaltet, dass sie gleichzeitig von mehreren Prozessen genutzt werden können (z.\,B. durch Read-Only-Zugriffe).
+    \item Dadurch ist keine exklusive Nutzung erforderlich.
+    \item \textit{Die Bedingung ist nie erfüllt, weil keine Ressource exklusiv vergeben wird.}
+  \end{itemize}
+
+  \item \textbf{Hold and Wait vermeiden:}
+  \begin{itemize}
+    \item Prozesse müssen vor Ausführung alle benötigten Ressourcen auf einmal anfordern.
+    \item Falls nicht alle verfügbar sind, wird der Prozess blockiert und bekommt keine.
+    \item \textit{Die Bedingung ist nie erfüllt, da Prozesse keine Ressourcen halten, während sie auf andere warten.}
+  \end{itemize}
+
+  \item \textbf{No Preemption vermeiden:}
+  \begin{itemize}
+    \item Ressourcen können einem Prozess entzogen werden, wenn dieser auf weitere wartet.
+    \item Das Betriebssystem kann die Ressource zwangsweise freigeben und später neu zuteilen.
+    \item \textit{Die Bedingung ist nie erfüllt, da Prozesse Ressourcen nicht dauerhaft behalten dürfen.}
+  \end{itemize}
+
+  \item \textbf{Circular Wait vermeiden:}
+  \begin{itemize}
+    \item Eine feste Reihenfolge (Total Order) für die Anforderung von Ressourcen wird definiert.
+    \item Prozesse dürfen nur in aufsteigender Reihenfolge nach Ressourcen fragen.
+    \item \textit{Die Bedingung ist nie erfüllt, weil dadurch keine zyklischen Wartekanten entstehen können.}
+  \end{itemize}
+\end{itemize}
+
+
+
+
+
+
+\end{document}

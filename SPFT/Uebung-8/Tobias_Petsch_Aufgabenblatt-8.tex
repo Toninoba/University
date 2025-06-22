@@ -1,0 +1,116 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\geometry{a4paper, left=25mm, right=25mm, top=25mm, bottom=25mm}
+
+\title{Aufgabenblatt 8\\\large SPFT}
+\author{Tobias Petsch}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Aufgabe 1}
+
+\begin{itemize}
+    \item \textbf{Vorteile:}
+    \begin{itemize}
+        \item Programm kann direkt im Quelltext spezifiziert werden
+        \item Automatische Methoden zum Überprüfen des Codes können ausgeführt werden
+        \item einige Methoden funktionieren gut auf großen Programmen
+        \item praktische Implementierung von theoretischen Methoden zur Überprüfung von Programmen auf Korrektheit
+        \item Fehler können schnell erkannt werden
+        \item Code kann direkt kommentiert werden
+    \end{itemize}
+    \item \textbf{Nachteile:}
+    \begin{itemize}
+        \item Unit Tests können unter Umständen nicht alles überprüfen
+        \item Frage des Halteproblems kann auftreten
+        \item erfordert Ahnung über Spezifizierung
+        \item Asserts können die Performance des Programms einschränken
+    \end{itemize}
+\end{itemize}
+
+Design by Contract wird nicht umfänglich eingesetzt, weil nicht viele Sprachen dieses Tool unterstützen, zudem ist die Spezifizierung ein großer Aufwand bei Projekten
+die unter einer strikten Deadline stehen. Man muss auch abwiegen ob es sich lohnt, Performance einzubußen. Andere Methoden wie Unit Tests oder Test Driven Development 
+haben sich stärker etabliert.
+
+\section*{Aufgabe 2}
+
+\begin{itemize}
+    \item \textbf{Unit-Tests:}
+    \item Generieren automatisch Unit tests für Funktionen und Klassen und decken dabei verschiedene Bereiche ab
+    \begin{itemize}
+        \item \textbf{Vorteile:}
+        \begin{itemize}
+            \item Automatische Testgenerierung
+            \item Schnelle Fehlerentdeckung bei Entwicklungprozess
+        \end{itemize}
+        \item \textbf{Nachteile:}
+        \begin{itemize}
+            \item Mögliches fehlen von Abdeckung (Halteproblem)
+        \end{itemize}
+    \end{itemize}
+    \item \textbf{Verifikation:}
+    \item Programm wird formal verifiziert und beim Model Checking überpüft
+    \begin{itemize}
+        \item \textbf{Vorteile:}
+        \begin{itemize}
+            \item Analyse zur Designzeit
+            \item Keine false Alarme
+        \end{itemize}
+        \item \textbf{Nachteile:}
+        \begin{itemize}
+            \item aufwendig
+            \item nur bei programme moderater Größe anwendbar
+        \end{itemize}
+    \end{itemize} 
+    
+    \item \textbf{Dokumentation:}
+    \item Generiert automatisch Dokumentation für Funktionen und Klassen in Einbezug der Bedingungen
+    \begin{itemize}
+        \item \textbf{Vorteile:}
+        \begin{itemize}
+            \item Schnelle Dokumentationserstellung
+        \end{itemize}
+        \item \textbf{Nachteile:}
+        \begin{itemize}
+            \item Unter Umständen verwirrend formuliert
+        \end{itemize}
+    \end{itemize}
+    \item \textbf{Runtime Assertion Testing:}
+    \item Generiert im Code Assertions hinein welche bei Ausführung des Codes Fehler werfen können
+    \begin{itemize}
+        \item \textbf{Vorteile:}
+        \begin{itemize}
+            \item Code wird durch asserts modifiziert
+            \item Eigenes Verhalten zur Fehlerverwaltung implementierbar
+        \end{itemize}
+        \item \textbf{Nachteile:}
+        \begin{itemize}
+            \item Fehler erst bei Laufzeit bekannt
+            \item teuer in Performance
+        \end{itemize}
+    \end{itemize}
+    \item \textbf{Statische Analyse:}
+    \item Übersetzt Code in SMT kompatibles Format wo es dann durch einen SMT Solver gelöst werden kann
+    \begin{itemize}
+        \item \textbf{Vorteile:}
+        \begin{itemize}
+            \item Überprüfung der Korrektheit des Programms
+            \item sehr große Programme möglich
+            \item Überprüfung zur Designzeit möglich
+        \end{itemize}
+        \item \textbf{Nachteile:}
+        \begin{itemize}
+            \item Mögliche False Positives und false negatives
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+\end{document}
