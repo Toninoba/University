@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.4.30)  15 OCT 2025 09:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.4.30)  15 OCT 2025 09:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -358,27 +358,27 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] (./VL1.aux)
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./VL1.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `VL1.out' has not changed.
-(rerunfilecheck)             Checksum: 1D88C362B545267DAB1DAEDD9E36B4E2;439.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 11376 strings out of 476129
- 174029 string characters out of 5793186
- 1927975 words of memory out of 5000000
- 33245 multiletter control sequences out of 15000+600000
- 570713 words of font info for 72 fonts, out of 8000000 for 9000
+ 11334 strings out of 476129
+ 173587 string characters out of 5793186
+ 1924975 words of memory out of 5000000
+ 33218 multiletter control sequences out of 15000+600000
+ 564815 words of font info for 53 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,6n,79p,311b,453s stack positions out of 10000i,1000n,20000p,200000b,200000s
- </home/tobi/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/tobi/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/tobi/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/tobi/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk> </home/tobi/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home/tobi/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm2074.600pk>
-Output written on VL1.pdf (2 pages, 32979 bytes).
+ 75i,6n,79p,311b,451s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ </home/tobi/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/tobi/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk> </home/tobi/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home/tobi/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm2074.600pk>
+Output written on VL1.pdf (1 page, 14513 bytes).
 PDF statistics:
- 168 PDF objects out of 1000 (max. 8388607)
- 65 compressed objects within 1 object stream
- 9 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 70 PDF objects out of 1000 (max. 8388607)
+ 26 compressed objects within 1 object stream
+ 3 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
