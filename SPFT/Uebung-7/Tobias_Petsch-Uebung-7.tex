@@ -1,0 +1,70 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
+
+\setlength\parindent{0pt}
+
+\title{Aufgabenblatt 7\\\large SFT}
+\author{Tobias Petsch}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Aufgabe 1}
+
+\begin{itemize}
+    \item Sorten
+    \begin{itemize}
+        \item Baum
+        \item Blatt -> Baum 
+        \item Node
+    \end{itemize}
+    \item Konstruktoren
+    \begin{itemize}
+        \item Blatt: -> Baum
+        \item Node: Baum x NAT x Baum -> Baum
+    \end{itemize}
+\end{itemize}
+
+\section*{Aufgabe 2}
+
+\begin{itemize}
+    \item Tiefe(Leaf) = 0
+    \item Tiefe(Node(l, v, r)) = 1 + Max(Tiefe(l), Tiefe(r))
+    \item AllLeafsSameDepth(t) = AllLeafsSameDepthHelper(t, 0)
+    \item AllLeafsSameDepthHelper(Leaf, d) = true
+    \item AllLeafsSameDepthHelper(Node(l, v, r), d) = $AllLeafsSameDepthHelper(l, d + 1) \land AllLeafsSameDepthHelper(r, d + 1) \land (Tiefe(l) = Tiefe(r))$
+\end{itemize}
+
+\section*{Aufgabe 4}
+
+\subsection*{a)}
+
+\begin{itemize}
+    \item emptyList: -> List
+    \item MyList: List x elem -> List
+    \item elem: -> NAT
+    \item 
+\end{itemize}
+
+\subsection*{b)}
+
+MyList(3, MyList(7, MyList(7, MyList(10, NULL))))
+
+\section*{Aufgabe 5}
+
+\begin{itemize}
+    \item sort(emptyList) = true
+    \item sort(MyList(x, Null)) = true
+    \item sort(MyList(x, MyList(y, r))) = $(x \leq y) \land sort(MyList(y, r))$
+\end{itemize}
+
+\end{document}

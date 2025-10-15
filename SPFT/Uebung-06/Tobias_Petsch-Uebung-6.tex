@@ -1,0 +1,108 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
+
+\setlength{\parindent}{0pt}
+
+\title{Übung 6\\
+\large SPFT}
+\author{Tobias Petsch}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{6.1}
+
+Wir betrachen die Vorbedingung und die Zuweisung $x := y - 5$
+
+aus $y \geq 0$ wird mit der Zuweisung die neue Nachbedingung $P: y \geq 0 \land x := y - 5$ 
+
+Nach der IF Regel erhalten wir 2 Faelle. \\
+
+\text{Fall 1:}
+
+$y \geq 0 \land x := y - 5 \land x < 0$ \\
+
+daraus folgt das $y \geq 0 \land y < 5$ und nach der Ausfuehrung $x := y - 2$ ist. \\
+
+Wir sollen zeigen dass nach der Ausfuehrung $x+2 \geq 0$ gilt. \\
+
+Das ist gegeben da fuer $y=0$ nun $x := 0 - 2 = -2$ ist und die Nachbedingung so trotzdem erfuellt ist. \\
+
+\text{Fall2: }
+
+$y \geq 0 \land x := y - 5 \land \neg (x < 0)$ \\
+
+$y \geq 0 \land x := y - 5 \land (x \geq 0)$ \\
+
+da $x \geq 0$ und $x + 2$ immernoch groesser 0 ist. Ist hier auch die Nachbedingung erfuellt und die partielle Korrektheit ist bewiesen.
+
+
+
+\section*{6.2}
+
+\paragraph{Herleitung:} 
+Gegeben ist die Vorbedingung $x \cdot x = y + 1$. 
+Der \texttt{then}-Zweig mit Bedingung $x \cdot x = y$ kann nicht eintreten, da dies im Widerspruch zur Vorbedingung steht. 
+Es wird also stets der \texttt{else}-Zweig ausgeführt: $y := y \cdot y$, gefolgt von $x := x - 1$. Da $y = (x^2 - 1)^2$ und $x$ um 1 reduziert wird, 
+gilt nach Ausführung $x \leq y$ und es existiert ein $q = x^2 - 1$ mit $q \cdot q = y$. Somit ist die Nachbedingung $x \leq y \land \exists q.\ q \cdot q = y$ erfüllt.
+
+\section*{6.3}
+
+\paragraph{Herleitung:} Die Vorbedingung ist \texttt{true}, da keine Einschränkung vorliegt. Wir unterscheiden zwei Fälle:
+
+\begin{itemize}
+  \item Falls $a > b$, wird $c := a$ gesetzt. Dann gilt: $c = a$, also $c \geq a$ und $c \geq b$ (wegen $a > b$), sowie $c = a \lor c = b$.
+  \item Falls $a \leq b$, wird $c := b$ gesetzt. Dann gilt: $c = b$, also $c \geq a$ und $c \geq b$, sowie $c = a \lor c = b$ (falls $a = b$).
+\end{itemize}
+
+In beiden Fällen erfüllt $c$ die Bedingung $c = \max(a, b)$ nach Definition. Da das Programm terminiert (keine Schleifen), ist auch totale Korrektheit gegeben.
+
+
+
+\section*{6.4}
+
+\paragraph{Herleitung:} Ziel ist es zu zeigen, dass nach Ausführung gilt: $\exists k.\ k \cdot m + r = n \land r < m$. Als Schleifeninvariante wählen wir $I \equiv \exists k.\ k \cdot m + r = n \land r \geq 0$. Zu Beginn ist $r := n$, also gilt $1 \cdot m + (n - m) = n$ mit $k = 0$. Die Invariante ist erfüllt.
+
+In jedem Schleifendurchlauf wird $r := r - m$ ausgeführt. Wenn vorher $k \cdot m + r = n$, dann gilt danach $(k+1) \cdot m + (r - m) = n$, also ist die Invariante erhalten. Die Schleife läuft, solange $m \leq r$. Sobald sie endet, gilt $r < m$. Zusammen mit der Invariante folgt dann die Nachbedingung $\exists k.\ k \cdot m + r = n \land r < m$.
+
+Da wir nur natürliche Zahlen subtrahieren und $r$ bei $n$ beginnt, wird die Schleife irgendwann abbrechen (terminiert). Damit ist die partielle Korrektheit gezeigt.
+
+\section*{6.5}
+
+\paragraph{Herleitung:} Gegeben ist die Vorbedingung $n = n_0$. Daraus folgt $A$, denn $n = 1 \cdot n_0 \Rightarrow \exists k.\ n = k \cdot n_0$ und $n \leq 5 \cdot n_0$.
+
+Wir zeigen die totale Korrektheit von 
+\[
+\{ n = n_0 \} \ \texttt{while } B \ \{ n := n + n_0 \} \ \{ n = 5 \cdot n_0 \}
+\]
+mit Invariante $A$ und Terminierungsmaß $t = 5 \cdot n_0 - n$.
+
+\begin{itemize}
+  \item \textbf{(I)} Invariante $A$ ist vor der Schleife erfüllt.
+  \item \textbf{(II)} Erhaltung: Wenn $A \land B$ vor dem Schleifendurchlauf gilt, dann bleibt $A$ nach $n := n + n_0$ erhalten, da $n$ um $n_0$ erhöht wird, also $n = (k+1) \cdot n_0$.
+  \item \textbf{(III)} Terminierung: $t$ ist in $\mathbb{N}_0$ und sinkt strikt bei jeder Iteration, da $n$ wächst ($t' = t - n_0$).
+  \item \textbf{(IV)} Schleife terminiert, wenn $B$ falsch, also $n \geq 5 \cdot n_0$. In Kombination mit $A: n \leq 5 \cdot n_0$ ergibt sich $n = 5 \cdot n_0$.
+\end{itemize}
+
+Damit ist totale Korrektheit gezeigt.
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

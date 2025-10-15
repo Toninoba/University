@@ -1,0 +1,454 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{tikzinclude}
+\geometry{a4paper, margin=2.5cm}
+
+\title{Aufgabenblatt 6\\Technische Informatik II}
+\author{Tobias Petsch}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+
+
+\section*{Aufgabe 6.1}
+
+\begin{itemize}
+  \item \textbf{Grau}: Wartezeit
+  \item \textbf{Grün}: Bearbeitungszeit
+\end{itemize}
+
+\subsection*{a)}
+
+
+
+\begin{center}
+    \begin{tikzpicture}
+
+    \draw[->] (0,0) -- (16,0) node[right] {Zeit};
+    \draw[->] (0,0) -- (0,6) node[above] {Prozesse};
+
+    % Prozess 1
+  \filldraw[fill=green!30, draw=black] (0,5) rectangle (3,5.8);
+  \node at (1.5,5.4) {A};
+
+  % Prozess 2
+  \filldraw[fill=gray!30, draw=black] (2,4) rectangle (3,4.8);
+  \filldraw[fill=green!30, draw=black] (3,4) rectangle (5,4.8);
+  \node at (4,4.4) {B};
+
+  % Prozess 3
+  \filldraw[fill=gray!30, draw=black] (2,3) rectangle (5,3.8);
+  \filldraw[fill=green!30, draw=black] (5,3) rectangle (6,3.8);
+  \node at (5.5,3.4) {C};
+
+  \filldraw[fill=gray!30, draw=black] (5,2) rectangle (6,2.8);
+  \filldraw[fill=green!30, draw=black] (6,2) rectangle (14,2.8);
+  \node at (10,2.4) {D};
+
+  \filldraw[fill=gray!30, draw=black] (8,1) rectangle (14,1.8);
+  \filldraw[fill=green!30, draw=black] (14,1) rectangle (15,1.8);
+  \node at (14.5,1.4) {E};
+
+  % Zeitmarkierungen
+  \foreach \x in {0,1,...,15} {
+    \draw (\x,0.1) -- (\x,-0.1) node[below] {\x};
+  }
+
+\end{tikzpicture}
+\end{center}
+
+
+
+\subsection*{b)}
+
+\begin{center}
+    \begin{tikzpicture}
+
+    \draw[->] (0,0) -- (16,0) node[right] {Zeit};
+    \draw[->] (0,0) -- (0,6) node[above] {Prozesse};
+
+  % Prozess A
+  \filldraw[fill=green!30, draw=black] (0,5) rectangle (3,5.8);
+  \node at (1.5,5.4) {A};
+
+  % Prozess B
+  \filldraw[fill=gray!30, draw=black] (3,4) rectangle (4,4.8);
+  \filldraw[fill=green!30, draw=black] (4,4) rectangle (6,4.8);
+  \node at (5,4.4) {B};
+
+  % Prozess C
+  \filldraw[fill=green!30, draw=black] (3,3) rectangle (4,3.8);
+  \node at (3.5,3.4) {C};
+
+  % Prozess D
+  
+  \filldraw[fill=green!30, draw=black] (6,2) rectangle (14,2.8);
+  \node at (10,2.4) {D};
+
+  % Prozess E
+  \filldraw[fill=gray!30, draw=black] (9,1) rectangle (14,1.8);
+  \filldraw[fill=green!30, draw=black] (14,1) rectangle (15,1.8);
+  \node at (14.5,1.4) {E};
+
+  % Zeitmarkierungen
+  \foreach \x in {0,1,...,15} {
+    \draw (\x,0.1) -- (\x,-0.1) node[below] {\x};
+  }
+
+\end{tikzpicture}
+\end{center}
+
+\subsection*{c)}
+
+\begin{center}
+  \begin{tikzpicture}
+
+  \draw[->] (0,0) -- (16,0) node[right] {Zeit};
+  \draw[->] (0,0) -- (0,6) node[above] {Prozesse};
+
+  % Prozess A
+  \filldraw[fill=green!30, draw=black] (0,5) rectangle (3,5.8);
+  \node at (1.5,5.4) {A};
+
+  % Prozess B
+  \filldraw[fill=gray!30, draw=black] (3,4) rectangle (4,4.8);
+  \filldraw[fill=green!30, draw=black] (4,4) rectangle (6,4.8);
+  \node at (5,4.4) {B};
+
+  % Prozess C
+  \filldraw[fill=green!30, draw=black] (3,3) rectangle (4,3.8);
+  \node at (3.5,3.4) {C};
+
+  % Prozess D
+  \filldraw[fill=green!30, draw=black] (6,2) rectangle (8,2.8);
+  \filldraw[fill=gray!30, draw=black] (8,2) rectangle (9,2.8);
+  \filldraw[fill=gray!30, draw=black] (5,2) rectangle (6,2.8);
+  \filldraw[fill=green!30, draw=black] (9,2) rectangle (15,2.8);
+  \node at (12.5,2.4) {D};
+
+  % Prozess E
+  \filldraw[fill=green!30, draw=black] (8,1) rectangle (9,1.8);
+  \node at (8.5,1.4) {E};
+
+  % Zeitmarkierungen
+  \foreach \x in {0,1,...,15} {
+  \draw (\x,0.1) -- (\x,-0.1) node[below] {\x};
+  }
+
+\end{tikzpicture}
+\end{center}
+
+\subsection*{d)}
+
+\begin{center}
+    \begin{tikzpicture}
+
+    \draw[->] (0,0) -- (16,0) node[right] {Zeit};
+    \draw[->] (0,0) -- (0,6) node[above] {Prozesse};
+
+  % Prozess A
+  \filldraw[fill=green!30, draw=black] (0,5) rectangle (2,5.8);
+  \filldraw[fill=green!30, draw=black] (4,5) rectangle (5,5.8);
+  \node at (1,5.4) {A};
+  \node at (4.5,5.4) {A};
+
+  % Prozess B
+  \filldraw[fill=green!30, draw=black] (2,4) rectangle (3,4.8);
+  \node at (2.5,4.4) {B};
+  \filldraw[fill=green!30, draw=black] (5,4) rectangle (6,4.8);
+  \node at (5.5,4.4) {B};
+
+  % Prozess C
+  \filldraw[fill=green!30, draw=black] (3,3) rectangle (4,3.8);
+  \node at (3.5,3.4) {C};
+
+  % Prozess D
+  \filldraw[fill=green!30, draw=black] (6,2) rectangle (8,2.8);
+  \filldraw[fill=green!30, draw=black] (9,2) rectangle (15,2.8);
+  \node at (12,2.4) {D};
+  \node at (7,2.4) {D};
+
+  % Prozess E
+  \filldraw[fill=green!30, draw=black] (8,1) rectangle (9,1.8);
+  \node at (8.5,1.4) {E};
+
+  % Zeitmarkierungen
+  \foreach \x in {0,1,...,15} {
+    \draw (\x,0.1) -- (\x,-0.1) node[below] {\x};
+  }
+
+\end{tikzpicture}
+\end{center}
+
+\subsection*{e)}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|c|c|c|}
+\multicolumn{4}{c}{\textbf{FCFS}} \\
+\hline
+ & Finish Time & Tr & Tr/Ts \\
+\hline
+A & 3 & 3 & 1\\
+\hline
+B & 5 & 3 & 1.66\\
+\hline
+C & 6 & 4 & 1.5\\
+\hline
+D & 14 & 9 & 1.55\\
+\hline
+E & 15 & 7 & 2.143\\
+\hline
+MW & & 5.2 & 1.5706  \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|c|c|c|}
+\multicolumn{4}{c}{\textbf{SPN}} \\
+\hline
+ & Finish Time & Tr & Tr/Ts \\
+\hline
+A & 3 & 3 & 1\\
+\hline
+B & 6 & 4 & 1.5\\
+\hline
+C & 4 & 2 & 2\\
+\hline
+D & 14 & 9 &  1.55\\
+\hline
+E & 15 & 7 & 2.143\\
+\hline
+MW & & 5 & 1.6386  \\
+\hline
+\end{tabular}
+\end{center}
+
+
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|c|c|c|}
+\multicolumn{4}{c}{\textbf{SRT}} \\
+\hline
+ & Finish Time & Tr & Tr/Ts \\
+\hline
+A & 3 & 3 & 1\\
+\hline
+B & 6 & 4 & 1.5\\
+\hline
+C & 4 & 2 & 2\\
+\hline
+D & 15 & 10 &  1.5\\
+\hline
+E & 9 & 1 & 9\\
+\hline
+MW & & 4 & 3 \\
+\hline
+\end{tabular}
+\end{center}
+
+
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|c|c|c|}
+\multicolumn{4}{c}{\textbf{Round Robin}} \\
+\hline
+ & Finish Time & Tr & Tr/Ts \\
+\hline
+A & 5 & 5 & 1\\
+\hline
+B & 6 & 4 & 1.5\\
+\hline
+C & 4 & 2 & 2\\
+\hline
+D & 15 & 10 &  1.5\\
+\hline
+E & 9 & 1 & 9\\
+\hline
+MW & & 4.4 & 3\\
+\hline
+\end{tabular}
+\end{center}
+
+
+\section*{6.2}
+
+\subsection*{a)}
+
+\begin{center}
+    \begin{tikzpicture}
+
+    \draw[->] (0,0) -- (16,0) node[right] {Zeit};
+    \draw[->] (0,0) -- (0,6) node[above] {Prozesse};
+
+    % Prozess 1
+  \filldraw[fill=green!30, draw=black] (0,5) rectangle (3,5.8);
+  \node at (1.5,5.4) {A};
+
+  % Prozess 2
+  \filldraw[fill=gray!30, draw=black] (2,4) rectangle (3,4.8);
+  \filldraw[fill=red!30, draw=black] (3,4) rectangle (5,4.8);
+  \node at (4,4.4) {B};
+
+  % Prozess 3
+  \filldraw[fill=gray!30, draw=black] (2,3) rectangle (5,3.8);
+  \filldraw[fill=red!30, draw=black] (5,3) rectangle (6,3.8);
+  \node at (5.5,3.4) {C};
+
+  \filldraw[fill=gray!30, draw=black] (5,2) rectangle (6,2.8);
+  \filldraw[fill=green!30, draw=black] (6,2) rectangle (14,2.8);
+  \node at (10,2.4) {D};
+
+  \filldraw[fill=gray!30, draw=black] (8,1) rectangle (14,1.8);
+  \filldraw[fill=red!30, draw=black] (14,1) rectangle (15,1.8);
+  \node at (14.5,1.4) {E};
+
+  % Zeitmarkierungen
+  \foreach \x in {0,1,...,15} {
+    \draw (\x,0.1) -- (\x,-0.1) node[below] {\x};
+  }
+
+\end{tikzpicture}
+\end{center}
+
+Alle mit rot markiereten Prozesse werden nicht korrekt beendet.
+
+
+\subsection*{b)}
+
+\begin{center}
+    \begin{tikzpicture}
+
+    \draw[->] (0,0) -- (16,0) node[right] {Zeit};
+    \draw[->] (0,0) -- (0,6) node[above] {Prozesse};
+
+    % Prozess 1
+  \filldraw[fill=green!30, draw=black] (0,5) rectangle (3,5.8);
+  \node at (1.5,5.4) {A};
+
+  % Prozess 2
+  \filldraw[fill=gray!30, draw=black] (2,4) rectangle (3,4.8);
+  \filldraw[fill=red!30, draw=black] (3,4) rectangle (5,4.8);
+  \node at (4,4.4) {B};
+
+  % Prozess 3
+  \filldraw[fill=gray!30, draw=black] (2,3) rectangle (5,3.8);
+  \filldraw[fill=red!30, draw=black] (5,3) rectangle (6,3.8);
+  \node at (5.5,3.4) {C};
+
+  \filldraw[fill=gray!30, draw=black] (5,2) rectangle (6,2.8);
+  \filldraw[fill=green!30, draw=black] (6,2) rectangle (14,2.8);
+  \node at (10,2.4) {D};
+
+  \filldraw[fill=gray!30, draw=black] (8,1) rectangle (14,1.8);
+  \filldraw[fill=red!30, draw=black] (14,1) rectangle (15,1.8);
+  \node at (14.5,1.4) {E};
+
+  % Zeitmarkierungen
+  \foreach \x in {0,1,...,15} {
+    \draw (\x,0.1) -- (\x,-0.1) node[below] {\x};
+  }
+
+\end{tikzpicture}
+\end{center}
+
+
+\subsection*{c)}
+
+\begin{center}
+    \begin{tikzpicture}
+
+    \draw[->] (0,0) -- (16,0) node[right] {Zeit};
+    \draw[->] (0,0) -- (0,6) node[above] {Prozesse};
+
+    % Prozess 1
+  \filldraw[fill=green!30, draw=black] (0,5) rectangle (2,5.8);
+  \filldraw[fill=green!30, draw=black] (5,5) rectangle (6,5.8);
+  \node at (1.5,5.4) {A};
+
+  % Prozess 2
+  \filldraw[fill=green!30, draw=black] (2,4) rectangle (3,4.8);
+  \filldraw[fill=red!30, draw=black] (3,4) rectangle (4,4.8);
+  \node at (3.5,4.4) {B};
+
+  % Prozess 3
+  \filldraw[fill=gray!30, draw=black] (2,3) rectangle (4,3.8);
+  \filldraw[fill=red!30, draw=black] (4,3) rectangle (5,3.8);
+  \node at (4.5,3.4) {C};
+
+  \filldraw[fill=gray!30, draw=black] (5,2) rectangle (6,2.8);
+  \filldraw[fill=green!30, draw=black] (6,2) rectangle (8,2.8);
+  \filldraw[fill=green!30, draw=black] (9,2) rectangle (15,2.8);
+  \node at (12,2.4) {D};
+
+  \filldraw[fill=green!30, draw=black] (8,1) rectangle (9,1.8);
+  \node at (8.5,1.4) {E};
+
+  % Zeitmarkierungen
+  \foreach \x in {0,1,...,15} {
+    \draw (\x,0.1) -- (\x,-0.1) node[below] {\x};
+  }
+
+\end{tikzpicture}
+\end{center}
+
+
+\section*{6.3}
+
+\subsection*{a)}
+
+\texttt{SCHED\_FIFO} = FCFS \\
+
+\texttt{SCHED\_RR} = Round Robin \\
+
+\texttt{SCHED\_OTHER} = Normal (Completly fair Scheduler) \\
+
+\subsection*{b)}
+
+\texttt{SCHED\_FIFO} = Rate Monotonic Scheduling \\
+
+\texttt{SCHED\_RR} = (i) \\
+
+\texttt{SCHED\_OTHER} = (iii) \\
+
+
+\subsection*{c)}
+
+zu FIFO:
+  Feste Prioritaeten, nicht zeitscheibengesteuert, kein preemtion unter prozessen
+
+
+zu RR:
+  Feste Prioritaeten, preemtion
+  
+zu DEADLINE:
+  basierend auf Deadline
+
+
+\section*{6.4}
+
+\subsection*{a)}
+
+In der zweiten Simulation verhungern die Prozesse sehr wahrscheinlich weil 5 Prozesse gleichzeitig
+laufen, was in der ersten Simulation nicht der Fall ist. Zudem haben die Prozesse in der zweiten Simulation 
+ein Atomic Fetch add. 
+
+\subsection*{b)}
+
+Die Prozesse verhungern nur zum Teil, aber sie werden beendet. Da hier nicht auf die Beendigung eines Prozess gewartet wird, damit
+andere Prozesse drankommen, werden alle Prozesse am Ende korrekt beendet.
+
+\end{document}
+
+
