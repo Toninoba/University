@@ -1,0 +1,94 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{pgfplots}
+
+\pgfplotsset{compat = newest}
+
+\geometry{a4paper, margin=1in}
+
+\setlength{\parindent}{0pt}
+
+\title{Übung 1}
+\author{Tobi}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Aufgabe 1}
+
+\subsection*{a)}
+
+\[
+Q(t)=10 \frac{A}{s}*t^2
+\]
+
+\[
+i(t)= \frac{dQ}{dt}
+\]
+
+\[
+i(t)= 2*10 \frac{A}{S}*t = 20 \frac{A}{S}*t
+\]
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+            xmin = 0, xmax = 10,
+            xtick distance = 1,
+            grid = both,
+            xlabel = {Zeit $t$ (s)},
+            ylabel = {$\frac{A \text{ oder } C}{S}$},
+            ]
+            \addplot[
+                domain = 0:10,
+                samples = 200,
+                smooth,
+                thick,
+                blue
+            ] {10*x^2};
+
+             \addplot[
+                domain = 0:10,
+                samples = 200,
+                smooth,
+                thick,
+                red
+             ] {20*x};
+
+            \legend{
+                Q(t),
+                i(t)
+            }
+        \end{axis}
+    \end{tikzpicture}
+    
+\end{center}
+
+\subsection*{b)}
+
+\[
+Q(t)= \frac{1}{\pi}As[sin(\omega * t + \frac{\pi}{4})] \text{ mit }\omega \approx 314s^-1
+\]
+
+\[
+i(t) = \frac{dQ}{dt}
+\]
+
+\[
+i(t) = \frac{1}{\pi} As [cos(\omega * t + \frac{\pi}{4})]
+\]
+
+
+
+
+
+\end{document}
