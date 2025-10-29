@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.10.16)  29 OCT 2025 11:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.10.16)  29 OCT 2025 12:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -360,21 +360,21 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `VL4.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+(rerunfilecheck)             Checksum: B03B3A4B755A6799E820020467FB2DFB;103.
  ) 
 Here is how much of TeX's memory you used:
- 11323 strings out of 476056
- 173467 string characters out of 5791603
- 1924975 words of memory out of 5000000
- 33219 multiletter control sequences out of 15000+600000
- 563270 words of font info for 51 fonts, out of 8000000 for 9000
+ 11340 strings out of 476056
+ 173677 string characters out of 5791603
+ 1925975 words of memory out of 5000000
+ 33230 multiletter control sequences out of 15000+600000
+ 565927 words of font info for 55 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 75i,6n,79p,312b,449s stack positions out of 10000i,1000n,20000p,200000b,200000s
- </home/tobi/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/tobi/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home/tobi/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm2074.600pk>
-Output written on VL4.pdf (1 page, 10657 bytes).
+ 75i,6n,79p,312b,450s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ </home/tobi/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/tobi/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk> </home/tobi/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/tobi/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk> </home/tobi/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home/tobi/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm2074.600pk>
+Output written on VL4.pdf (1 page, 18320 bytes).
 PDF statistics:
- 52 PDF objects out of 1000 (max. 8388607)
- 21 compressed objects within 1 object stream
- 2 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 92 PDF objects out of 1000 (max. 8388607)
+ 39 compressed objects within 1 object stream
+ 4 named destinations out of 1000 (max. 500000)
+ 9 words of extra memory for PDF output out of 10000 (max. 10000000)
 
