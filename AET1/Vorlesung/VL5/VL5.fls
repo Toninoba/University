@@ -1,0 +1,7 @@
+PWD /home/tobi/Documents/University/University/AET1/Vorlesung/VL5
+INPUT /etc/texmf/web2c/texmf.cnf
+INPUT /usr/share/texmf/web2c/texmf.cnf
+INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
+INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
+INPUT /home/tobi/Documents/University/University/AET1/Vorlesung/VL5/VL5.tex
+OUTPUT VL5.log
